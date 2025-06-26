@@ -1,7 +1,10 @@
-import { name } from 'ejs';
-import mongoose from 'mongoose';
+const mongoose=require("mongoose");
 const { Schema } = mongoose;
 const notesSchema = new Schema({
+    user: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"user"
+    },
     description: {
         type: String,
         require:true
@@ -15,4 +18,6 @@ const notesSchema = new Schema({
         default : Date.now
 }
 });
-module.exports=notesSchema;
+
+const notes=mongoose.model("notes",notesSchema);
+module.exports=notes;

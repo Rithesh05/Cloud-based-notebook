@@ -8,7 +8,8 @@ main();
 //middleware
 app.use(express.json());
 //routes
-app.use("/api/auth",require("./routes/auth"))
+app.use("/api/auth",require("./routes/auth"));
+app.use("/api/notes",require("./routes/notes"));
 
 app.get("/",(req,res)=>{
     res.send("hii");
